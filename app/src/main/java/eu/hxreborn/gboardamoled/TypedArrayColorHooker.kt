@@ -7,8 +7,6 @@ import io.github.libxposed.api.XposedInterface.AfterHookCallback
 import io.github.libxposed.api.annotations.AfterInvocation
 import io.github.libxposed.api.annotations.XposedHooker
 
-// Replaces system_surface_container* colors with black in dark mode.
-// Excludes *high* variants (borders) and accent colors.
 @XposedHooker
 class TypedArrayColorHooker : XposedInterface.Hooker {
 
@@ -25,7 +23,10 @@ class TypedArrayColorHooker : XposedInterface.Hooker {
 
             val resourceName = context.resolveResourceName() ?: return
 
-            if (resourceName.startsWith(SURFACE_CONTAINER_PREFIX) && !resourceName.contains(HIGH_VARIANT_MARKER)) {
+            // Preserve borders and accent colors
+            if (resourceName.startsWith(SURFACE_CONTAINER_PREFIX)
+                && !resourceName.contains(HIGH_VARIANT_MARKER)
+            ) {
                 callback.result = AMOLED_BLACK
             }
         }
@@ -51,7 +52,7 @@ class TypedArrayColorHooker : XposedInterface.Hooker {
         companion object {
             fun from(callback: AfterHookCallback): HookContext? {
                 val typedArray = callback.thisObject as? TypedArray ?: return null
-                val args = callback.args ?: return null
+                val args = callback.args
                 val index = args.getOrNull(0) as? Int ?: return null
                 val originalColor = callback.result as? Int ?: return null
                 typedArray.resources ?: return null
