@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Gboard AMOLED Dynamic Color</string>
+    <string name="app_desc">Forces Gboard\'s dynamic dark theme background to true AMOLED black while preserving Monet accent colors</string>
+</resources>
