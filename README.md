@@ -1,54 +1,78 @@
-# Gboard AMOLED Dynamic Color
+# Gboard Material Expressive Black
 
-LSPosed module that replaces Gboard's dark grey background with pure black while preserving Material You accent colors.
+LSPosed module that restores pitch black backgrounds to Gboard on Android 16, bypassing Material 3 Expressive enforcement while preserving dynamic theme colors.
 
-![GitHub Release](https://img.shields.io/github/v/release/hxreborn/gboard-amoled-dynamic-color)
+![GitHub Release](https://img.shields.io/github/v/release/hxreborn/gboard-material-expressive-black)
 
-## Description
+## Why This Module?
 
-Gboard's dark theme uses dark grey surfaces instead of pure black. This module intercepts Material You color lookups and replaces surface container colors with #000000 while preserving dynamic accent colors derived from the wallpaper.
+Starting with Android 16 and Material 3 Expressive, Gboard enforces tinted grey surface colors instead of pitch black. This design change breaks AMOLED power savings and prevents pitch black themes.
 
-**Tested on:** Pixel 9 Pro, Android 15/16
+
+This module intercepts Material You color lookups at the system level using LSPosed hooks, replacing surface container colors with pitch black while preserving wallpaper-derived dynamic theme colors. Pitch black pixels remain electrically inactive on OLED panels, reducing power consumption without sacrificing dynamic theming.
+
+**Tested configuration:**
+- Device: Pixel 9 Pro (caiman)
+- Android: 16.0.0 (BP3A.251105.015, Nov 2025)
+- ROM: Stock Android November build
+- Root: KernelSU Next via GKI2 12797 (no LKM)
+- LSPosed: [JingMatrix fork](https://github.com/JingMatrix/LSPosed)
+- ColorBlendr: 2.0.3 (unrelated but present; worked for black backgrounds pre-16, may replace this module when updated for Android 16)
+
+Functionality on other devices, ROM versions, or LSPosed implementations is untested.
+
+## Visual Comparison
+
+### With Key Borders ON
+
+**Stock Gboard (Grey Background)**
+
+<img src="screenshots/stock_borders_on.png" alt="Stock with borders" width="100%"/>
+
+**With This Module (Pitch Black)**
+
+<img src="screenshots/module_borders_on.png" alt="Module with borders" width="100%"/>
+
+### With Key Borders OFF
+
+**Stock Gboard (Grey Background)**
+
+<img src="screenshots/stock_borders_off.png" alt="Stock without borders" width="100%"/>
+
+**With This Module (Pitch Black)**
+
+<img src="screenshots/module_borders_off.png" alt="Module without borders" width="100%"/>
+
+---
+
+Notice the grey/tinted background in stock Gboard vs pitch black with this module. Dynamic theme colors (blue/purple) are preserved in both configurations.
 
 ## Requirements
 
-- **Android:** 12+ (API 31+) – Material You dependency
-- **Root:** Magisk/KernelSU with LSPosed
-- **Target:** Gboard (`com.google.android.inputmethod.latin`)
-- **LSPosed:** libxposed API v100
+- Android 12+ (Android 16+ recommended - fixes grey background issue)
+- LSPosed framework
 
 ## Installation
 
 1. Install [LSPosed](https://github.com/LSPosed/LSPosed/releases)
-2. Download latest APK from [releases](https://github.com/hxreborn/gboard-amoled-dynamic-color/releases)
+2. Download latest APK from [releases](https://github.com/hxreborn/gboard-material-expressive-black/releases)
 3. Install APK and enable module in LSPosed Manager
 4. Add **Gboard** to module scope
 5. Force stop Gboard or reboot
 
-## Verification
-
-1. Enable dark theme globally
-2. Enable Material You dynamic colors
-3. Open text field to show Gboard
-4. Background should be pure black, keys grey, accents colorful
-
-## Building
+## Building from source
 
 ```bash
-git clone --recurse-submodules https://github.com/hxreborn/gboard-amoled-dynamic-color.git
-cd gboard-amoled-dynamic-color
+git clone --recurse-submodules https://github.com/hxreborn/gboard-material-expressive-black.git
+cd gboard-material-expressive-black
 ./gradlew assembleDebug
 ```
 
 **Build requirements:** JDK 21, Gradle 8.7+
 
-## Troubleshooting
-
-- Verify module is enabled and scoped to Gboard in LSPosed Manager
-- Check dark mode is active (light theme is unaffected)
-- View logs: `adb logcat -s GboardAmoled`
-- OEM ROM overlays may require adjustments
 
 ## License
 
-MIT
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
