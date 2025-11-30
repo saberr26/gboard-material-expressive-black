@@ -1,0 +1,8 @@
+name=Gboard AMOLED Dynamic Color
+description=Forces Gboard's Material You dark theme to true AMOLED black while preserving Monet accent colors
+version=1.0.0
+versionCode=100
+author=hxreborn
+minApiVersion=100
+targetApiVersion=100
+staticScope=true
