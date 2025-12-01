@@ -6,7 +6,7 @@ LSPosed module that restores pitch black backgrounds to Gboard on Android 16, by
 ![GitHub Downloads](https://img.shields.io/github/downloads/hxreborn/gboard-material-expressive-black/total)
 ![Android API](https://img.shields.io/badge/API-31%2B-brightgreen)
 ![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-blue)
-![APK Size](https://img.shields.io/badge/APK%20Size-~50KB-orange)
+![APK Size](https://img.shields.io/badge/APK%20Size-~25KB-orange)
 
 ## Why This Module?
 
