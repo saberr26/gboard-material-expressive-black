@@ -38,9 +38,6 @@ This module intercepts Material You color lookups at the system level using LSPo
 
 </details>
 
----
-
-Notice the grey/tinted background (module off) vs pitch black (module on). Dynamic theme colors are preserved.
 
 ## Requirements
 
@@ -51,16 +48,17 @@ Tested on Pixel 9 Pro, Android 16 (BP3A.251105.015), JingMatrix LSPosed fork, Ke
 
 ## Installation
 
-1. Install [LSPosed](https://github.com/LSPosed/LSPosed/releases)
+1. Install [LSPosed](https://github.com/JingMatrix/LSPosed) (JingMatrix fork recommended)
 2. Download latest APK from [releases](https://github.com/hxreborn/gboard-material-expressive-black/releases)
 3. Install APK and enable module in LSPosed Manager
 4. Add **Gboard** to module scope
-5. Force stop Gboard or reboot
+5. Force stop Gboard
+6. Open any text field to trigger Gboard
 
 ## Building from source
 
 ```bash
-git clone --recurse-submodules https://github.com/hxreborn/gboard-material-expressive-black.git
+git clone https://github.com/hxreborn/gboard-material-expressive-black.git
 cd gboard-material-expressive-black
 ./gradlew assembleDebug
 ```
