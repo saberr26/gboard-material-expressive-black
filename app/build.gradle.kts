@@ -102,8 +102,10 @@ android {
 }
 
 dependencies {
-    implementation(libs.libxposed.service)
-    compileOnly(libs.libxposed.api)
+    // Commit AAR files directly to repo for reliable CI builds
+    implementation(files("$rootDir/libs/api-100.aar"))
+    implementation(files("$rootDir/libs/interface-100.aar"))
+    implementation(files("$rootDir/libs/service-100-1.0.0.aar"))
 }
 
 tasks.register("validateVersionSync") {
