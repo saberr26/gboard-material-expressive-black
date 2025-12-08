@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Gboard Material Expressive Black</string>
-    <string name="app_desc">Restores pitch black backgrounds to Gboard, bypassing Material 3 Expressive enforcement while preserving dynamic theme colors</string>
+    <string name="app_desc">Enables pitch black Gboard background on Android 16 dynamic theme</string>
 </resources>
